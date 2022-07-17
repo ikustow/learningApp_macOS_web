@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:web_app_dashboard/auth/providers/auth_provider_state.dart';
+import '../../providers/auth_provider_state.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,19 +33,19 @@ class LoginPage extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          ElevatedButton(onPressed: () {
-            authService.signInUser(context,
+          ElevatedButton(onPressed: ()  {
+             authService.signUpUser(context,
                 email: emailController.text,
                 password: passwordController.text);
-          }, child: Text("Login")),
+          }, child: Text("Register")),
           SizedBox(
             height: 16,
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/register');
+                Navigator.pushNamed(context, '/login');
               },
-              child: Text("Register"))
+              child: Text("Already have account?"))
         ],
       ),
     );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'auth/pages/login_page.dart';
-import 'auth/pages/register_page.dart';
+import 'package:web_app_dashboard/responsive/responsive_layout.dart';
+import 'auth/pages/login_page/login_page.dart';
+import 'auth/pages/login_page/login_page_mobile.dart';
+import 'auth/pages/register_page/register_page.dart';
 import 'auth/providers/auth_provider_state.dart';
 import 'dashboard/pages/dashboard.dart';
 
@@ -31,9 +33,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const LoginPage(),
+        home: ResponsiveLayout(
+          desktopBody: LoginPage(),
+          mobileBody: LoginPageMobile(),
+        ),
       ),
     );
   }
 }
-
