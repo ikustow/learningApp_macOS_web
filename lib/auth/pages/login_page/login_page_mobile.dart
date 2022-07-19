@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_app_dashboard/auth/widgets/login_banner_widget.dart';
+import 'package:web_app_dashboard/auth/widgets/login_column.dart';
+import 'package:web_app_dashboard/auth/widgets/register_button_widget.dart';
 
 import '../../providers/auth_provider_state.dart';
 
@@ -9,7 +11,6 @@ class LoginPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     final authService = Provider.of<ProviderState>(context);
@@ -17,41 +18,18 @@ class LoginPageMobile extends StatelessWidget {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Expanded(
             flex: 2,
-            child: LoginBannerWidget(),),
-          TextField(
-            controller: emailController,
-            decoration: InputDecoration(
-              labelText: "Email",
+            child: LoginBannerWidget(),
+          ),
+          Expanded(
+            flex: 4,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 36.0),
+              child: LoginColumn(),
             ),
           ),
-          SizedBox(
-            height: 16,
-          ),
-          TextField(
-            controller: passwordController,
-            decoration: InputDecoration(
-              labelText: "Password",
-            ),
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          ElevatedButton(onPressed: () {
-            authService.signInUser(context,
-                email: emailController.text,
-                password: passwordController.text);
-          }, child: Text("Login")),
-          SizedBox(
-            height: 16,
-          ),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/register');
-              },
-              child: Text("Register"))
         ],
       ),
     );
