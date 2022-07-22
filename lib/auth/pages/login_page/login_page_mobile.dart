@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_app_dashboard/auth/widgets/login_banner_widget.dart';
 import 'package:web_app_dashboard/auth/widgets/login_column.dart';
+import 'package:web_app_dashboard/auth/widgets/mobile_login_banner_widget.dart';
 import 'package:web_app_dashboard/auth/widgets/register_button_widget.dart';
 
 import '../../providers/auth_provider_state.dart';
@@ -16,21 +17,31 @@ class LoginPageMobile extends StatelessWidget {
     final authService = Provider.of<ProviderState>(context);
 
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Expanded(
-            flex: 2,
-            child: LoginBannerWidget(),
-          ),
-          Expanded(
-            flex: 4,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 36.0),
-              child: LoginColumn(),
+      backgroundColor: Colors.blue.shade100,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            height: 500,
+            width: 750,
+            margin: EdgeInsets.symmetric(horizontal: 24),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color: Colors.white,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:  [
+                MobileLoginBannerWidget(),
+              //  SizedBox(height: 16),
+                Padding(
+                  padding: const EdgeInsets.all(60.0),
+                  child: LoginColumn(),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

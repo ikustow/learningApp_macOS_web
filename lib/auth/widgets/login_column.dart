@@ -14,8 +14,11 @@ class LoginColumn extends StatelessWidget {
     final authService = Provider.of<ProviderState>(context);
 
     return Column(
-
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
         TextField(
           controller: emailController,
           decoration: InputDecoration(
@@ -34,7 +37,15 @@ class LoginColumn extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        ElevatedButton(
+        MaterialButton(
+          color: Colors.blue.shade700,
+          textColor: Colors.white,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32)
+          ),
+          minWidth: double.infinity,
+          height: 52,
+          elevation: 24,
           onPressed: () {
             authService.signInUser(context,
                 email: emailController.text, password: passwordController.text);
