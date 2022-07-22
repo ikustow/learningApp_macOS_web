@@ -11,7 +11,6 @@ class MobileLoginBannerWidget extends StatelessWidget {
         child: Container(
           color: Colors.blue,
           child: Container(
-
             child: Center(
               child: SizedBox(
                 height: 200,
