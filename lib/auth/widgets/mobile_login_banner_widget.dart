@@ -16,6 +16,7 @@ class MobileLoginBannerWidget extends StatelessWidget {
               child: SizedBox(
                 height: 200,
                 child: Stack(
+
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
