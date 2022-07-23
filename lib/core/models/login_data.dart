@@ -1,22 +1,10 @@
 import 'package:flutter/material.dart';
 
-class LoginDataProvider extends ChangeNotifier{
+class LoginData {
 
-  String login = '';
-  String password = '';
+  final String login;
+  final String password;
 
-  String get loginValue => login;
-  String get passwordValue => password;
-
-  void _setLogin(loginValue){
-    login = loginValue;
-    notifyListeners();
-  }
-
-  void _setPassword(passwordValue){
-    password = passwordValue;
-    notifyListeners();
-  }
-
+  LoginData(this.login, this.password);
 
 }

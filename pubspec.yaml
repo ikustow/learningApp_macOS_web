@@ -27,9 +27,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  provider: ^6.0.3
-  riverpod: ^1.0.3
-  supabase: ^0.3.6
+  flutter_riverpod: ^1.0.4
+  supabase_flutter: ^0.3.3
+  shared_preferences: ^2.0.15
   flutter:
     sdk: flutter
 

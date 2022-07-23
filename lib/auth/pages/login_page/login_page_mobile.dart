@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:web_app_dashboard/auth/widgets/login_banner_widget.dart';
 import 'package:web_app_dashboard/auth/widgets/login_column.dart';
 import 'package:web_app_dashboard/auth/widgets/mobile_login_banner_widget.dart';
 import 'package:web_app_dashboard/auth/widgets/register_button_widget.dart';
 
-import '../../providers/auth_provider_state.dart';
 
 class LoginPageMobile extends StatelessWidget {
   const LoginPageMobile({Key? key}) : super(key: key);
@@ -14,7 +12,6 @@ class LoginPageMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final authService = Provider.of<ProviderState>(context);
 
     return Scaffold(
       backgroundColor: Colors.blue.shade100,

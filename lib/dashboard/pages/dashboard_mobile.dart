@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-class Dashboard extends StatelessWidget {
+class DashboardMobile extends StatelessWidget {
   final String username;
   final String email;
-  const Dashboard ({Key? key, required this.username, required this.email}) : super(key: key);
+  const DashboardMobile ({Key? key, required this.username, required this.email}) : super(key: key);
 
 
   @override

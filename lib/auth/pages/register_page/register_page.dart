@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../providers/auth_provider_state.dart';
+
+
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -9,7 +9,6 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final authService = Provider.of<ProviderState>(context);
 
     return Scaffold(
       body: Column(
@@ -34,9 +33,7 @@ class RegisterPage extends StatelessWidget {
             height: 16,
           ),
           ElevatedButton(onPressed: ()  {
-             authService.signUpUser(context,
-                email: emailController.text,
-                password: passwordController.text);
+
           }, child: Text("Register")),
           SizedBox(
             height: 16,
