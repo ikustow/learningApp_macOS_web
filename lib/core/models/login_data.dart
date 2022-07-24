@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginData {
+import 'login_data.dart';
 
-  final String login;
-  final String password;
+class SharedData {
+  final String email;
+  final String userId;
+  final bool isAuth;
 
-  LoginData(this.login, this.password);
+  SharedData(this.email, this.userId, this.isAuth);
 
+//     this.id = savedUser!.toString();
+//     this.isAuth = true;
 }

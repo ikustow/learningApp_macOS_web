@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase/supabase.dart';
-import 'package:web_app_dashboard/core/routes.dart';
+import 'package:web_app_dashboard/auth/pages/login_page/login_page.dart';
+import 'package:web_app_dashboard/auth/pages/login_page/login_page_mobile.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard_mobile.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
@@ -61,6 +62,16 @@ class SupaBaseService {
 
   Future<void> logout(context) async {
     await client.auth.signOut();
-    Navigator.pushReplacementNamed(context, '/login');
+
+    final loginPageRoute = ResponsiveLayout(
+      mobileBody: LoginPageMobile(),
+      desktopBody: LoginPage(),
+    );
+
+    Navigator.of(context).pushReplacement(
+      new MaterialPageRoute(
+          builder: (context) => loginPageRoute
+      ),
+    );
   }
 }

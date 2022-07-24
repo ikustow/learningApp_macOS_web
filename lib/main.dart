@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:web_app_dashboard/generated/l10n.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
 import 'auth/pages/login_page/login_page.dart';
 import 'auth/pages/login_page/login_page_mobile.dart';
-import 'consts.dart';
-import 'dashboard/pages/dashboard.dart';
+import 'auth/pages/start_page.dart';
+
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
 
-  await Supabase.initialize(
-    url: supabaseUrl,
-    anonKey: token,
-  );
+  // await Supabase.initialize(
+  //   url: supabaseUrl,
+  //   anonKey: token,
+  // );
   runApp(ProviderScope(child: const MyApp()));
 }
 
@@ -24,72 +25,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Supabase Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        routes: <String, WidgetBuilder>{
-         // '/': (_) =>  StartPage(),
-          '/login': (_) => ResponsiveLayout(
-            desktopBody: LoginPage(),
-            mobileBody: LoginPageMobile(),),
-        //  '/dashboard': (_) =>  Dashboard(username:"test", email: "test",),
-         // '/home': (_) => const HomePage(),
-        },
+      localizationsDelegates:const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      title: 'Supabase Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      routes: <String, WidgetBuilder>{
+        '/login': (_) => ResponsiveLayout(
+              desktopBody: LoginPage(),
+              mobileBody: LoginPageMobile(),
+            ),
+      },
       home: StartPage(),
-        // home: ResponsiveLayout(
-        //   desktopBody: LoginPage(),
-        //   mobileBody: LoginPageMobile(),
     );
   }
 }
 
 
-class StartPage extends StatefulWidget {
-  const StartPage({Key? key}) : super(key: key);
-
-  @override
-  _StartPageState createState() => _StartPageState();
-}
-
-class _StartPageState extends AuthState<StartPage> {
-  @override
-  void initState() {
-    recoverSupabaseSession();
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: CircularProgressIndicator()),
-    );
-  }
-}
 
 
-class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
-  @override
-  void onUnauthenticated() {
-    if (mounted) {
 
-      Navigator.pushReplacementNamed(context, '/login');
-    }
-  }
-
-  @override
-  void onAuthenticated(Session session) {
-    if (mounted) {
-      Navigator.pushReplacementNamed(context, '/dashboard');
-    }
-  }
-
-  @override
-  void onPasswordRecovery(Session session) {}
-
-  @override
-  void onErrorAuthenticating(String message) {
-    Navigator.pushReplacementNamed(context, '/login');
-  }
-}
