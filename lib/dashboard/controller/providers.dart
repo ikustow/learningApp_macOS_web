@@ -43,7 +43,7 @@ final randomWordProvider = StateNotifierProvider<RandomWordController, List<Rand
       translateValue:  ("Bank") as String,
     );
   initiaWords.add(value);
-
+    
   return RandomWordController(initiaWords);
 });
 

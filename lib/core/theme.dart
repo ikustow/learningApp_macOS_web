@@ -25,7 +25,7 @@ abstract class TextStyles {
 
 abstract class RGBColors {
   
-  static final drawerColor = Colors.blue.shade100.withOpacity(0.3);
+  static final drawerColor = Colors.white54;
   static const drawerIconColor = Colors.black87;
   
 }

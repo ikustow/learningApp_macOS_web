@@ -7,47 +7,68 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: RGBColors.drawerColor,
-      elevation: 0,
-      child: Column(
-        children: [
-          DrawerHeader(
-            padding: EdgeInsets.symmetric(vertical: 46),
-            child: Text(
-              Strings.drawerTitle,
-              style: TextStyles.drawerHeaderTextStyle,
-            ),
-          ),
-          Padding(
-            padding: drawerPadding,
-            child: DrawerListTile(
-              title:Strings.homeSection,
-              listTileIcon: Icon(Icons.home, color: RGBColors.drawerIconColor,),
-            ),
-          ),
-          Padding(
-            padding: drawerPadding,
-            child: DrawerListTile(
-              title: Strings.audioSection,
-              listTileIcon: Icon(Icons.record_voice_over, color: RGBColors.drawerIconColor,),
-            ),
-          ),
-          Padding(
-            padding: drawerPadding,
-            child: DrawerListTile(
-              title: Strings.pricesSection,
-              listTileIcon: Icon(Icons.rocket_launch, color: RGBColors.drawerIconColor,),
-            ),
-          ),
-          Padding(
-            padding: drawerPadding,
-            child: DrawerListTile(
-              title: Strings.logoutSection,
-              listTileIcon: Icon(Icons.no_accounts_rounded, color: RGBColors.drawerIconColor,),
-            ),
+    return Container(
+      decoration: BoxDecoration(
+       borderRadius: BorderRadius.circular(2),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromRGBO(251, 244, 246, 1),
+              Color.fromRGBO(251, 244, 246, 1),
+              Color.fromRGBO(251, 244, 246, 1),
+              Color.fromRGBO(251, 244, 246, 1),
+              Color.fromRGBO(251, 244, 246, 1),
+              Color.fromRGBO(251, 244, 246, 1),
+              Color.fromRGBO(194, 207, 252, 1.0),
+              Color.fromRGBO(194, 207, 252, 1.0),
+              Color.fromRGBO(184, 207, 255, 1.0),
+            ],
           )
-        ],
+      ),
+      child: Drawer(
+
+       backgroundColor: RGBColors.drawerColor,
+        elevation: 0,
+        child: Column(
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.symmetric(vertical: 46),
+              child: Text(
+                Strings.drawerTitle,
+                style: TextStyles.drawerHeaderTextStyle,
+              ),
+            ),
+            Padding(
+              padding: drawerPadding,
+              child: DrawerListTile(
+                title:Strings.homeSection,
+                listTileIcon: Icon(Icons.home, color: RGBColors.drawerIconColor,),
+              ),
+            ),
+            Padding(
+              padding: drawerPadding,
+              child: DrawerListTile(
+                title: Strings.audioSection,
+                listTileIcon: Icon(Icons.record_voice_over, color: RGBColors.drawerIconColor,),
+              ),
+            ),
+            Padding(
+              padding: drawerPadding,
+              child: DrawerListTile(
+                title: Strings.pricesSection,
+                listTileIcon: Icon(Icons.rocket_launch, color: RGBColors.drawerIconColor,),
+              ),
+            ),
+            Padding(
+              padding: drawerPadding,
+              child: DrawerListTile(
+                title: Strings.logoutSection,
+                listTileIcon: Icon(Icons.no_accounts_rounded, color: RGBColors.drawerIconColor,),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
