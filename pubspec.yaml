@@ -32,6 +32,7 @@ dependencies:
   hooks_riverpod: ^1.0.4
   supabase_flutter: ^0.3.3
   shared_preferences: ^2.0.15
+  auto_size_text: ^3.0.0
   flutter_localizations:
     sdk: flutter
   flutter:

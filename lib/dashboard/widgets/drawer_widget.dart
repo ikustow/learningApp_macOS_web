@@ -28,7 +28,7 @@ class DrawerWidget extends StatelessWidget {
       ),
       child: Drawer(
 
-       backgroundColor: RGBColors.drawerColor,
+       backgroundColor: AppColors.drawerColor,
         elevation: 0,
         child: Column(
           children: [
@@ -43,28 +43,28 @@ class DrawerWidget extends StatelessWidget {
               padding: drawerPadding,
               child: DrawerListTile(
                 title:Strings.homeSection,
-                listTileIcon: Icon(Icons.home, color: RGBColors.drawerIconColor,),
+                listTileIcon: Icon(Icons.home, color: AppColors.drawerIconColor,),
               ),
             ),
             Padding(
               padding: drawerPadding,
               child: DrawerListTile(
                 title: Strings.audioSection,
-                listTileIcon: Icon(Icons.record_voice_over, color: RGBColors.drawerIconColor,),
+                listTileIcon: Icon(Icons.record_voice_over, color: AppColors.drawerIconColor,),
               ),
             ),
             Padding(
               padding: drawerPadding,
               child: DrawerListTile(
                 title: Strings.pricesSection,
-                listTileIcon: Icon(Icons.rocket_launch, color: RGBColors.drawerIconColor,),
+                listTileIcon: Icon(Icons.rocket_launch, color: AppColors.drawerIconColor,),
               ),
             ),
             Padding(
               padding: drawerPadding,
               child: DrawerListTile(
                 title: Strings.logoutSection,
-                listTileIcon: Icon(Icons.no_accounts_rounded, color: RGBColors.drawerIconColor,),
+                listTileIcon: Icon(Icons.no_accounts_rounded, color: AppColors.drawerIconColor,),
               ),
             )
           ],

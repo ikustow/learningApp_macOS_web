@@ -16,4 +16,15 @@ class UserMainGoal {
       required this.name,
       required this.userEmail,
       required this.desc});
+
+
+ getAverageProgressValue () {
+
+   final avg = ((this.currentValue/this.totalValue)*10)/2;
+   final avgRounded = avg.round();
+
+   return avgRounded;
+
+  }
+
 }

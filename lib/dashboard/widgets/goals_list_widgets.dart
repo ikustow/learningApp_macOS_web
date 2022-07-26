@@ -1,11 +1,14 @@
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:web_app_dashboard/core/models/user_main_goal.dart';
+import 'package:web_app_dashboard/core/theme.dart';
 import 'package:web_app_dashboard/dashboard/controller/providers.dart';
+import 'package:web_app_dashboard/dashboard/widgets/progress_bar_widget.dart';
 
 class MainGoalsGridView extends StatefulWidget {
   final String email;
+
   const MainGoalsGridView({Key? key, required this.email}) : super(key: key);
 
   @override
@@ -16,14 +19,17 @@ class _MainGoalsGridViewState extends State<MainGoalsGridView> {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-
-      builder: (context,  WidgetRef ref, child) {
-        AsyncValue<List<UserMainGoal>> goals = ref.watch(mainGoalsProvider(widget.email));
+      builder: (context, WidgetRef ref, child) {
+        AsyncValue<List<UserMainGoal>> goals =
+        ref.watch(mainGoalsProvider(widget.email));
 
         return goals.when(
-          data: (goals) => ListOfGoals(goals: goals,),
+          data: (goals) =>
+              ListOfGoals(
+                goals: goals,
+              ),
           loading: () => EmptyListOfGoals(),
-          error: (e, stackTrace) => Text("Error!!!"),
+          error: (e, stackTrace) => Text(""),
         );
       },
     );
@@ -32,6 +38,7 @@ class _MainGoalsGridViewState extends State<MainGoalsGridView> {
 
 class ListOfGoals extends StatelessWidget {
   final List<UserMainGoal> goals;
+
   const ListOfGoals({Key? key, required this.goals}) : super(key: key);
 
   @override
@@ -42,17 +49,32 @@ class ListOfGoals extends StatelessWidget {
         width: double.infinity,
         child: GridView.builder(
           itemCount: 4,
-          gridDelegate:
-          const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4),
           itemBuilder: (context, index) {
-            return Card(
-              child: Column(children: [
-                Text(goals[index].name),
-                Text(goals[index].desc),
-                Text(goals[index].currentValue.toString()),
-                Text(goals[index].totalValue.toString()),
-              ],),
+            return Container(
+              child:
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:
+                    [
+                      AutoSizeText(goals[index].name,style: TextStyles.mainGoalTitleTextStyle, minFontSize: 10, overflow: TextOverflow.ellipsis,),
+                      SizedBox(height: 32,),
+                      ProgressBarWidget(avgValue:goals[index].getAverageProgressValue(),),
+                      Row(mainAxisAlignment:MainAxisAlignment.center,
+                        children:[
+                          Text(goals[index].currentValue.toString()),
+                          Text(' / '),
+                          Text(goals[index].totalValue.toString()),
+                        ],),
+                    Text(goals[index].desc, style: TextStyles.mainGoalDescriptionTextStyle,),
+                    ],
+                  ),
+                ),
+              ),
             );
           },
         ),
@@ -62,9 +84,11 @@ class ListOfGoals extends StatelessWidget {
 }
 
 
-class EmptyListOfGoals extends StatelessWidget {
 
-  const EmptyListOfGoals({Key? key, }) : super(key: key);
+class EmptyListOfGoals extends StatelessWidget {
+  const EmptyListOfGoals({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +98,16 @@ class EmptyListOfGoals extends StatelessWidget {
         width: double.infinity,
         child: GridView.builder(
           itemCount: 4,
-          gridDelegate:
-          const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4),
           itemBuilder: (context, index) {
             return Card(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircularProgressIndicator(),
+                ),
+              ),
             );
           },
         ),
@@ -86,3 +115,4 @@ class EmptyListOfGoals extends StatelessWidget {
     );
   }
 }
+

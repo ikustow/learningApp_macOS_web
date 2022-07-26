@@ -1,8 +1,7 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:web_app_dashboard/core/models/random_word.dart';
+import 'package:web_app_dashboard/dashboard/widgets/adv_banner_widget.dart';
 import 'package:web_app_dashboard/dashboard/widgets/goals_list_widgets.dart';
 import 'package:web_app_dashboard/dashboard/widgets/random_word_widget.dart';
 import '../controller/providers.dart';
@@ -40,6 +39,7 @@ class Dashboard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DrawerWidget(),
+            SizedBox(width: 8,),
             Expanded(
               flex: 2,
               child: Column(
@@ -67,7 +67,7 @@ class Dashboard extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                               color: Colors.white.withOpacity(0.8),
                             ),
-                            child: RandomWordValue(),
+                            child: RandomWordWidget(),
                           ),
                         ),
                       ),
@@ -84,61 +84,6 @@ class Dashboard extends StatelessWidget {
   }
 }
 
-class AdvertisingBannerWidget extends StatelessWidget {
-  const AdvertisingBannerWidget({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
-        child: Container(
-          height: 100,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: Colors.orange[200],
-          ),
-          child:Padding(
-            padding: const EdgeInsets.all(0.4),
-            child: Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaY: 12, sigmaX: 12),
-                    child: Container(
-                      alignment: Alignment.center,
-                      color: Colors.white.withOpacity(.1),
-                      padding: const EdgeInsets.all(48),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(children: [
-                    Text("Someetx"),
-                    SizedBox(height: 16,),
-                    Text("Someetx"),
-                    SizedBox(height: 16,),
-                    ElevatedButton(onPressed: (){}, child: Text("11"))
-                  ],
-                    //
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 16.0),
-                    child: Image.asset('assets/flutter_illustration.png', width: 200,height: 200,)
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 
