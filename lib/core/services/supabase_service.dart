@@ -9,7 +9,9 @@ import 'package:web_app_dashboard/core/models/learning_progress.dart';
 import 'package:web_app_dashboard/core/models/random_word.dart';
 import 'package:web_app_dashboard/core/models/user_main_goal.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard.dart';
-import 'package:web_app_dashboard/dashboard/pages/dashboard_mobile.dart';
+import 'package:web_app_dashboard/dashboard/pages/dashboard_small.dart';
+import 'package:web_app_dashboard/dashboard/pages/dashboard_mobile_app.dart';
+import 'package:web_app_dashboard/dashboard/pages/dashboard_tablet.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
 import '../../consts.dart';
 
@@ -44,11 +46,19 @@ class SupaBaseService {
       var savedEmail = await prefs.getString('email');
 
       final dashboardRoute = ResponsiveLayout(
-        mobileBody: DashboardMobile(
+        smallBody: DashboardSmallWidget(
           email: savedEmail.toString(),
           username: savedUser.toString(),
         ),
         desktopBody: Dashboard(
+          email: savedEmail.toString(),
+          username: savedUser.toString(),
+        ),
+        tabletBody: DashboardTablet(
+          email: savedEmail.toString(),
+          username: savedUser.toString(),
+        ),
+        mobileAppBody:DashboardMobileApp(
           email: savedEmail.toString(),
           username: savedUser.toString(),
         ),
@@ -66,8 +76,9 @@ class SupaBaseService {
     await client.auth.signOut();
 
     final loginPageRoute = ResponsiveLayout(
-      mobileBody: LoginPageMobile(),
+      smallBody: LoginPageMobile(),
       desktopBody: LoginPage(),
+      tabletBody: LoginPageMobile(), mobileAppBody: LoginPageMobile(),
     );
 
     Navigator.of(context).pushReplacement(
@@ -136,8 +147,8 @@ class SupaBaseService {
       final value = RandomWord(
         id: (dataRow['id'] ?? 0) as int,
         value: (dataRow['value'] ?? '') as String,
-        phoneticValue:  (dataRow['desc'] ?? '') as String,
-        translateValue:  (dataRow['transvalue'] ?? '') as String,
+        phoneticValue: (dataRow['desc'] ?? '') as String,
+        translateValue: (dataRow['transvalue'] ?? '') as String,
       );
       allWords.add(value);
     }
@@ -147,12 +158,10 @@ class SupaBaseService {
     Random random = new Random();
     int randomNumber = random.nextInt(rangeValue);
 
-    final wordToLearn  = allWords[randomNumber];
+    final wordToLearn = allWords[randomNumber];
     final List<RandomWord> newStateList = [wordToLearn];
 
     print(wordToLearn);
     return newStateList;
   }
-
-
 }

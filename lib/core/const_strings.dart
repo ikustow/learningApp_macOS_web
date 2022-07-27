@@ -17,6 +17,7 @@ abstract class Strings {
 
   // audition widget
   static const newWordTitle           = "Learn new\nword";
+  static const newWordTabletTitle           = "Learn new word";
 }
 
 

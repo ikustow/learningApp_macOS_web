@@ -7,7 +7,6 @@ import 'auth/pages/login_page/login_page.dart';
 import 'auth/pages/login_page/login_page_mobile.dart';
 import 'auth/pages/start_page.dart';
 
-
 void main() async {
   //WidgetsFlutterBinding.ensureInitialized();
 
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates:const [
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -40,15 +39,12 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/login': (_) => ResponsiveLayout(
               desktopBody: LoginPage(),
-              mobileBody: LoginPageMobile(),
+              smallBody: LoginPageMobile(),
+              tabletBody: LoginPageMobile(),
+              mobileAppBody: LoginPageMobile(),
             ),
       },
       home: StartPage(),
     );
   }
 }
-
-
-
-
-
