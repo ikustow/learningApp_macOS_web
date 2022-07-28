@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:web_app_dashboard/core/models/learning_progress.dart';
 import 'package:web_app_dashboard/dashboard/controller/providers.dart';
-import 'package:web_app_dashboard/dashboard/widgets/empty_progress_list_widgets.dart';
-import 'package:web_app_dashboard/dashboard/widgets/progress_list_widgets.dart';
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/empty_progress_list_widgets.dart';
+
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/progress_list_widgets.dart';
 
 class CurrentProgressList extends StatefulWidget {
   final String email;

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:web_app_dashboard/core/models/user_main_goal.dart';
 import 'package:web_app_dashboard/core/theme.dart';
 import 'package:web_app_dashboard/dashboard/controller/providers.dart';
-import 'package:web_app_dashboard/dashboard/widgets/progress_bar_widget.dart';
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/progress_bar_widget.dart';
 
 class MainGoalsGridView extends StatefulWidget {
   final String email;

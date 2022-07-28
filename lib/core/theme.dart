@@ -210,6 +210,21 @@ abstract class BoxDecorationStyles {
       )
   );
 
+  static final BoxDecoration advMobileStyle = BoxDecoration(
+
+    borderRadius: BorderRadius.circular(8),
+
+    boxShadow: [
+      BoxShadow(
+        color:  Colors.orange.shade400.withOpacity(0.5),
+        spreadRadius: 3,
+        blurRadius: 5,
+        offset: const Offset(0, 3), // changes position of shadow
+      ),
+    ],
+    color: Colors.orange[400],
+  );
+
 }
 
 abstract class ButtonStyles {

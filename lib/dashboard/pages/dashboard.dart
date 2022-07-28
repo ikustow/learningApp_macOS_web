@@ -1,12 +1,14 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:web_app_dashboard/core/theme.dart';
-import 'package:web_app_dashboard/dashboard/widgets/adv_banner_widget.dart';
-import 'package:web_app_dashboard/dashboard/widgets/goals_list_widgets.dart';
-import 'package:web_app_dashboard/dashboard/widgets/random_word_widget.dart';
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/adv_banner_widget.dart';
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/current_progress_list_widget.dart';
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/goals_list_widgets.dart';
+
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/random_word_widget.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
-import '../widgets/current_progress_list_widget.dart';
-import '../widgets/drawer_widget.dart';
+
+import '../widgets/web_widgets/drawer_widget.dart';
 
 class Dashboard extends StatelessWidget {
   final String username;

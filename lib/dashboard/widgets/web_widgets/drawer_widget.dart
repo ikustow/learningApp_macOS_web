@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:web_app_dashboard/core/const_strings.dart';
 import 'package:web_app_dashboard/core/theme.dart';
 
+import '../../../core/services/supabase_service.dart';
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final authService = SupaBaseService();
     return Container(
       decoration: BoxDecoration(
        borderRadius: BorderRadius.circular(2),
@@ -62,9 +65,14 @@ class DrawerWidget extends StatelessWidget {
             ),
             Padding(
               padding: drawerPadding,
-              child: DrawerListTile(
-                title: Strings.logoutSection,
-                listTileIcon: Icon(Icons.no_accounts_rounded, color: AppColors.drawerIconColor,),
+              child: GestureDetector(
+                onTap: () async {
+                  authService.logout(context);
+                },
+                child: DrawerListTile(
+                  title: Strings.logoutSection,
+                  listTileIcon: Icon(Icons.no_accounts_rounded, color: AppColors.drawerIconColor,),
+                ),
               ),
             )
           ],

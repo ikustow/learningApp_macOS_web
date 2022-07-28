@@ -17,8 +17,7 @@ class ResponsiveLayout extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
 
-
-        if (( constraints.maxWidth < 560) ) {
+        if (( constraints.maxWidth < 600) ) {
           return mobileAppBody;
         }
         else if (constraints.maxWidth < 900) {
@@ -30,8 +29,6 @@ class ResponsiveLayout extends StatelessWidget {
         else {
           return desktopBody;
         }
-
-
       },
     );
   }

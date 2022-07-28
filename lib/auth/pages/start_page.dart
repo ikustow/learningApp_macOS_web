@@ -4,7 +4,7 @@ import 'package:web_app_dashboard/auth/pages/login_page/login_page.dart';
 import 'package:web_app_dashboard/auth/pages/login_page/login_page_mobile.dart';
 import 'package:web_app_dashboard/core/models/login_data.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard.dart';
-import 'package:web_app_dashboard/dashboard/pages/dashboard_small.dart';
+import 'package:web_app_dashboard/dashboard/pages/dashboard_mobile_web.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard_tablet.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
 
@@ -24,12 +24,15 @@ class _StartPageState extends State<StartPage> {
         home: FutureBuilder<SharedData>(
       future: AuthChecker(),
       builder: (buildContext, snapshot) {
+
         if (snapshot.hasData) {
-          if (snapshot.data?.isAuth != true) {
+
+          if (snapshot.data?.isAuth == false) {
             return ResponsiveLayout(
               desktopBody: LoginPage(),
               smallBody: LoginPageMobile(),
-              tabletBody: LoginPageMobile(), mobileAppBody: LoginPageMobile(),
+              tabletBody: LoginPageMobile(),
+              mobileAppBody: LoginPageMobile(),
             );
           }
           return ResponsiveLayout(
@@ -51,7 +54,12 @@ class _StartPageState extends State<StartPage> {
             ),
           );
         } else {
-          return Center(child: CircularProgressIndicator());
+          return ResponsiveLayout(
+            desktopBody: LoginPage(),
+            smallBody: LoginPageMobile(),
+            tabletBody: LoginPageMobile(),
+            mobileAppBody: LoginPageMobile(),
+          );
         }
       },
     ));
@@ -59,15 +67,18 @@ class _StartPageState extends State<StartPage> {
 }
 
 Future<SharedData> AuthChecker() async {
+
   var prefs = await SharedPreferences.getInstance();
   var savedUser = await prefs.getString('user');
   var savedEmail = await prefs.getString('email');
 
-  if (savedUser != '') {
+  if (savedEmail.toString() != 'null') {
+
     final sharedData =
         SharedData(savedEmail!.toString(), savedUser!.toString(), true);
     return sharedData;
   } else {
+
     final sharedData =
         SharedData(savedEmail!.toString(), savedUser!.toString(), false);
     return sharedData;

@@ -1,11 +1,13 @@
 
+
 import 'package:flutter/material.dart';
+import 'package:web_app_dashboard/core/const_strings.dart';
 import 'package:web_app_dashboard/core/theme.dart';
-import 'package:web_app_dashboard/dashboard/widgets/adv_banner_widget.dart';
-import 'package:web_app_dashboard/dashboard/widgets/current_progress_list_widget.dart';
-import 'package:web_app_dashboard/dashboard/widgets/goals_list_widgets.dart';
-import 'package:web_app_dashboard/dashboard/widgets/random_word_widget.dart';
-import 'package:web_app_dashboard/responsive/responsive_layout.dart';
+import 'package:web_app_dashboard/dashboard/widgets/mobile_widgets/adv_banner_mobile.dart';
+import 'package:web_app_dashboard/dashboard/widgets/mobile_widgets/main_goals_mobile_widget.dart';
+import 'package:web_app_dashboard/dashboard/widgets/mobile_widgets/progress_list_mobile.dart';
+import '../widgets/web_widgets/drawer_widget.dart';
+
 
 
 class DashboardMobileApp extends StatelessWidget {
@@ -17,6 +19,11 @@ class DashboardMobileApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(Strings.homeSection),
+      ),
+     drawer: DrawerWidget(),
+     // bottomNavigationBar: BottomNavigationBarWidget(index: 0,),
       body: Container(
         decoration: BoxDecorationStyles.backgroundGradient,
         child: Padding(
@@ -24,20 +31,14 @@ class DashboardMobileApp extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 32,
+                height: 8,
               ),
               // first 4 boxes in grid
-              MainGoalsGridView(
+              MainGoalsMobileGridView(
                 email: email,
               ),
-              AdvertisingBannerWidget(
-                type: TypeOfResponsive.Mobile,
-              ),
-              RandomWordWidget(
-                type: TypeOfResponsive.Tablet,
-              ),
-
-              CurrentProgressList(
+             AdvertisingBannerMobileWidget(),
+              CurrentProgressListMobile(
                 email: email,
               ),
             ],
@@ -47,3 +48,5 @@ class DashboardMobileApp extends StatelessWidget {
     );
   }
 }
+
+

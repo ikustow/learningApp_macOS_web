@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:web_app_dashboard/core/theme.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
 
-import '../../core/const_strings.dart';
+import '../../../core/const_strings.dart';
 
 class AdvertisingBannerWidget extends StatelessWidget {
   final TypeOfResponsive type;

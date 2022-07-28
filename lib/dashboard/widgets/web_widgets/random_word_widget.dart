@@ -2,11 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:web_app_dashboard/core/const_strings.dart';
 import 'package:web_app_dashboard/core/theme.dart';
 import 'package:web_app_dashboard/dashboard/controller/providers.dart';
 
-import '../../responsive/responsive_layout.dart';
+import '../../../responsive/responsive_layout.dart';
 
 class RandomWordWidget extends StatelessWidget {
   final TypeOfResponsive type;
@@ -28,8 +29,17 @@ class RandomWordWidget extends StatelessWidget {
 class desktopBodyRandomWidget extends StatelessWidget {
   final word;
   final ref;
+  FlutterTts flutterTts = FlutterTts();
 
-  const desktopBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+  desktopBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+
+  speak (String text) async {
+    await  flutterTts.setLanguage("en-US");
+    await  flutterTts.setPitch(0.5);
+    await  flutterTts.speak(text);
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -92,9 +102,7 @@ class desktopBodyRandomWidget extends StatelessWidget {
                         iconSize: 36,
                         icon: const Icon(Icons.spatial_audio_rounded),
                         onPressed: () {
-                          RandomWordController controller =
-                          ref.read(randomWordProvider.notifier);
-                          controller.updateWord(word.id);
+                          speak(word.value.toString());
                         },
                       ),
                     ],
@@ -112,8 +120,15 @@ class desktopBodyRandomWidget extends StatelessWidget {
 class tabletBodyRandomWidget extends StatelessWidget {
   final word;
   final ref;
+  FlutterTts flutterTts = FlutterTts();
 
-  const tabletBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+  tabletBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+
+  speak (String text) async {
+    await  flutterTts.setLanguage("en-US");
+    await  flutterTts.setPitch(1);
+    await  flutterTts.speak(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -176,9 +191,7 @@ class tabletBodyRandomWidget extends StatelessWidget {
                         iconSize: 20,
                         icon: const Icon(Icons.spatial_audio_rounded),
                         onPressed: () {
-                          RandomWordController controller =
-                          ref.read(randomWordProvider.notifier);
-                          controller.updateWord(word.id);
+                         speak(word.value.toString());
                         },
                       ),
                     ],

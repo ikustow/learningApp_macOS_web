@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/theme.dart';
+import '../../../core/theme.dart';
 
 class ProgressBarWidget extends StatelessWidget {
 

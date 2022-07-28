@@ -9,7 +9,7 @@ import 'package:web_app_dashboard/core/models/learning_progress.dart';
 import 'package:web_app_dashboard/core/models/random_word.dart';
 import 'package:web_app_dashboard/core/models/user_main_goal.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard.dart';
-import 'package:web_app_dashboard/dashboard/pages/dashboard_small.dart';
+import 'package:web_app_dashboard/dashboard/pages/dashboard_mobile_web.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard_mobile_app.dart';
 import 'package:web_app_dashboard/dashboard/pages/dashboard_tablet.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
@@ -74,6 +74,10 @@ class SupaBaseService {
 
   Future<void> logout(context) async {
     await client.auth.signOut();
+
+    final pref = await SharedPreferences.getInstance();
+    await pref.clear();
+
 
     final loginPageRoute = ResponsiveLayout(
       smallBody: LoginPageMobile(),

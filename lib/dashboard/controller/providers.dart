@@ -35,15 +35,15 @@ class RandomWordController extends StateNotifier <List<RandomWord>> {
 
 final randomWordProvider = StateNotifierProvider<RandomWordController, List<RandomWord>>((ref) {
 
-  final List<RandomWord> initiaWords = [];
+  final List<RandomWord> initialWords = [];
     final value = RandomWord(
       id: ( 0) as int,
       value: ("Bank") as String,
       phoneticValue:  ("Bank") as String,
       translateValue:  ("Bank") as String,
     );
-  initiaWords.add(value);
+  initialWords.add(value);
     
-  return RandomWordController(initiaWords);
+  return RandomWordController(initialWords);
 });
 

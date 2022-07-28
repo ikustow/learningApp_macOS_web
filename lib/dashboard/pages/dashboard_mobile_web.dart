@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_app_dashboard/core/theme.dart';
-import 'package:web_app_dashboard/dashboard/widgets/adv_banner_widget.dart';
-import 'package:web_app_dashboard/dashboard/widgets/current_progress_list_widget.dart';
-import 'package:web_app_dashboard/responsive/responsive_layout.dart';
+import 'package:web_app_dashboard/dashboard/widgets/mobile_widgets/adv_banner_mobile.dart';
+import 'package:web_app_dashboard/dashboard/widgets/web_widgets/current_progress_list_widget.dart';
+import '../widgets/web_widgets/goals_list_widgets.dart';
 
-import '../widgets/goals_list_widgets.dart';
-import '../widgets/random_word_widget.dart';
 
 class DashboardSmallWidget extends StatelessWidget {
   final String username;
@@ -28,17 +25,14 @@ class DashboardSmallWidget extends StatelessWidget {
                 height: 32,
               ),
               // first 4 boxes in grid
-              MainGoalsGridView(
-                email: email,
-              ),
-              AdvertisingBannerWidget(
-                type: TypeOfResponsive.Mobile,
-              ),
-              RandomWordWidget(
-                type: TypeOfResponsive.Tablet,
-              ),
-
-              CurrentProgressList(
+               Padding(
+                  padding:  const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: MainGoalsGridView(
+                    email: email,
+                  ),
+                ),
+             AdvertisingBannerMobileWidget(),
+             CurrentProgressList(
                 email: email,
               ),
             ],
@@ -48,3 +42,4 @@ class DashboardSmallWidget extends StatelessWidget {
     );
   }
 }
+
