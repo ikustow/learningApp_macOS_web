@@ -1,16 +1,26 @@
 # web_app_dashboard
 
-A new Flutter project.
+### Flutter pet project.
 
-## Getting Started
+## About the project
 
-This project is a starting point for a Flutter application.
+| State manager   | Riverpod                              |
+|-----------------|---------------------------------------|
+| Auth service    | Supabase /  shared preferences        |
+| Backend service | [supabase.com](https://supabase.com/) |
+| Design          | Soft Minimalism                       |
+| Platform        | Responsive Web/MacOS/IOS              |
+| HTTP Client     | [supabase.com](https://supabase.com/) |
 
-A few resources to get you started if this is your first Flutter project:
+## App screens
+### Login screen
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Features
+- Login with Supabase auth service
+- Storing an authorization cache with shared preferences package
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Dashboard screen
+
+- Responsive layout
+- Get data from backend service
+- Text to speech option

@@ -39,7 +39,7 @@ final randomWordProvider = StateNotifierProvider<RandomWordController, List<Rand
     final value = RandomWord(
       id: ( 0) as int,
       value: ("Bank") as String,
-      phoneticValue:  ("Bank") as String,
+      phoneticValue:  ("|bæŋk|") as String,
       translateValue:  ("Bank") as String,
     );
   initialWords.add(value);
