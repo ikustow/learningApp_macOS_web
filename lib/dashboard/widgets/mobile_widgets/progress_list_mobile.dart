@@ -25,8 +25,8 @@ class _CurrentProgressListMobileState extends State<CurrentProgressListMobile> {
 
         return progressValues.when(
           data: (progressValues) => ProgressListMobile(progressValues: progressValues,),
-          loading: () => EmptyProgressList(),
-          error: (e, stackTrace) => Text(""),
+          loading: () => const EmptyProgressList(),
+          error: (e, stackTrace) => const CircularProgressIndicator(),
         );
       },
     );
@@ -85,7 +85,7 @@ class ProgressValueTileMobile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(progressValue.name, style: TextStyles.progressValueTileTitleTextStyle,),
-                  SizedBox(height: 8.0,),
+                  const SizedBox(height: 8.0,),
                   Text(progressValue.desc,style: TextStyles.progressValueTileDescTextStyle,),
                   Padding(
                     padding: const EdgeInsets.only( top: 8.0,bottom: 8.0),

@@ -25,8 +25,8 @@ class _CurrentProgressListState extends State<CurrentProgressList> {
 
         return progressValues.when(
           data: (progressValues) => ProgressList(progressValues: progressValues,),
-          loading: () => EmptyProgressList(),
-          error: (e, stackTrace) => Text(""),
+          loading: () => const EmptyProgressList(),
+          error: (e, stackTrace) => const CircularProgressIndicator(),
         );
       },
     );

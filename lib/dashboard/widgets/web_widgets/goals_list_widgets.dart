@@ -28,8 +28,8 @@ class _MainGoalsGridViewState extends State<MainGoalsGridView> {
               ListOfGoals(
                 goals: goals,
               ),
-          loading: () => EmptyListOfGoals(),
-          error: (e, stackTrace) => Text(""),
+          loading: () => const EmptyListOfGoals(),
+          error: (e, stackTrace) => const CircularProgressIndicator(),
         );
       },
     );
@@ -52,27 +52,24 @@ class ListOfGoals extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4),
           itemBuilder: (context, index) {
-            return Container(
-              child:
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:
-                    [
-                      AutoSizeText(goals[index].name,style: TextStyles.mainGoalTitleTextStyle, minFontSize: 10, overflow: TextOverflow.ellipsis,),
-                      SizedBox(height: 32,),
-                      ProgressBarWidget(avgValue:goals[index].getAverageProgressValue(),),
-                      Row(mainAxisAlignment:MainAxisAlignment.center,
-                        children:[
-                          Text(goals[index].currentValue.toString()),
-                          Text(' / '),
-                          Text(goals[index].totalValue.toString()),
-                        ],),
-                    Text(goals[index].desc, style: TextStyles.mainGoalDescriptionTextStyle,),
-                    ],
-                  ),
+            return Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:
+                  [
+                    AutoSizeText(goals[index].name,style: TextStyles.mainGoalTitleTextStyle, minFontSize: 10, overflow: TextOverflow.ellipsis,),
+                    const SizedBox(height: 32,),
+                    ProgressBarWidget(avgValue:goals[index].getAverageProgressValue(),),
+                    Row(mainAxisAlignment:MainAxisAlignment.center,
+                      children:[
+                        Text(goals[index].currentValue.toString()),
+                        const Text(' / '),
+                        Text(goals[index].totalValue.toString()),
+                      ],),
+                  Text(goals[index].desc, style: TextStyles.mainGoalDescriptionTextStyle,),
+                  ],
                 ),
               ),
             );
@@ -101,10 +98,10 @@ class EmptyListOfGoals extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4),
           itemBuilder: (context, index) {
-            return Card(
+            return const Card(
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: CircularProgressIndicator(),
                 ),
               ),

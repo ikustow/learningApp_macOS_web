@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 import 'package:web_app_dashboard/core/const_strings.dart';
 import 'package:web_app_dashboard/core/theme.dart';
 import 'package:web_app_dashboard/dashboard/controller/providers.dart';
@@ -19,26 +19,33 @@ class RandomWordWidget extends StatelessWidget {
       builder: (context, WidgetRef ref, child) {
         final wordList = ref.watch(randomWordProvider);
         final word = wordList[0];
-        return (type == TypeOfResponsive.Desktop) ? desktopBodyRandomWidget(word: word, ref: ref,): tabletBodyRandomWidget(word: word, ref: ref,);
+        return (type == TypeOfResponsive.Desktop) ? DesktopBodyRandomWidget(word: word, ref: ref,): TabletBodyRandomWidget(word: word, ref: ref,);
       },
     );
   }
 }
 
 
-class desktopBodyRandomWidget extends StatelessWidget {
+class DesktopBodyRandomWidget extends StatelessWidget {
   final word;
   final ref;
-  FlutterTts flutterTts = FlutterTts();
+  TextToSpeech tts = TextToSpeech();
 
-  desktopBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+  String text = '';
+  double volume = 1; // Range: 0-1
+  double rate = 1.0; // Range: 0-2
+  double pitch = 1.0; // Range: 0-2
+  final String defaultLanguage = 'en-US';
 
-  speak (String text) async {
-    await  flutterTts.setLanguage("en-US");
-    await  flutterTts.setPitch(0.5);
-    await  flutterTts.speak(text);
+  DesktopBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+
+  void speak(text) {
+    tts.setVolume(volume);
+    tts.setRate(rate);
+    tts.setLanguage(defaultLanguage);
+    tts.setPitch(pitch);
+    tts.speak(text);
   }
-
 
 
   @override
@@ -117,17 +124,25 @@ class desktopBodyRandomWidget extends StatelessWidget {
   }
 }
 
-class tabletBodyRandomWidget extends StatelessWidget {
+class TabletBodyRandomWidget extends StatelessWidget {
   final word;
   final ref;
-  FlutterTts flutterTts = FlutterTts();
 
-  tabletBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+  TextToSpeech tts = TextToSpeech();
+  String text = '';
+  double volume = 1; // Range: 0-1
+  double rate = 1.0; // Range: 0-2
+  double pitch = 1.0; // Range: 0-2
+  final String defaultLanguage = 'en-US';
 
-  speak (String text) async {
-    await  flutterTts.setLanguage("en-US");
-    await  flutterTts.setPitch(1);
-    await  flutterTts.speak(text);
+  TabletBodyRandomWidget({Key? key, this.word, this.ref}) : super(key: key);
+
+  void speak(text) {
+    tts.setVolume(volume);
+    tts.setRate(rate);
+    tts.setLanguage(defaultLanguage);
+    tts.setPitch(pitch);
+    tts.speak(text);
   }
 
   @override
@@ -156,27 +171,27 @@ class tabletBodyRandomWidget extends StatelessWidget {
                   Text(Strings.newWordTabletTitle,
                       style: TextStyles.newWordTabletTitleTextStyle, textAlign: TextAlign.center),
                   const SizedBox(
-                    height: 4,
+                    height: 16,
                   ),
                   Text(
                     word.value,
                     style: TextStyles.newWordTabletValueTextStyle,
                   ),
                   const SizedBox(
-                    height: 4,
+                    height: 8,
                   ),
                   Text(
                     word.phoneticValue,
                     style: TextStyles.newWordTabletPhoneticValueTextStyle,
                   ),
                   const SizedBox(
-                    height: 4,
+                    height: 16,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
-                        iconSize: 20,
+                        iconSize: 36,
                         icon: const Icon(Icons.refresh_sharp),
                         onPressed: () {
                           RandomWordController controller =
@@ -188,7 +203,7 @@ class tabletBodyRandomWidget extends StatelessWidget {
                         width: 8,
                       ),
                       IconButton(
-                        iconSize: 20,
+                        iconSize: 36,
                         icon: const Icon(Icons.spatial_audio_rounded),
                         onPressed: () {
                          speak(word.value.toString());

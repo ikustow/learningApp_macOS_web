@@ -52,39 +52,12 @@ class DashboardTablet extends StatelessWidget {
                       ],
                     ),
                   ),
-
                   CurrentProgressList(
                     email: email,
                   ),
                 ],
               ),
             ),
-            /*   Expanded(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 32, left: 8, right: 8),
-                          child: ClipRRect(
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 12,sigmaY: 12),
-                              child: Container(
-                                height: 100,
-                                width: 500,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Colors.white.withOpacity(0.8),
-                                ),
-                                child: RandomWordWidget(),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      AdvertisingBannerWidget(),
-                    ],
-                  ),
-                ),*/
           ],
         ),
       ),

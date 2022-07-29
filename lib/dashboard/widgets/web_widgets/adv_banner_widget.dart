@@ -14,7 +14,7 @@ class AdvertisingBannerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey _globalKey = GlobalKey();
+
     return Expanded(
 
       child: Padding(

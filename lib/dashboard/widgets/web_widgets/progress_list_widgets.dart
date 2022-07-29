@@ -46,7 +46,7 @@ class ProgressValueTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 78,
+        height: 90,
         decoration:  (progressValue.isCompleted ? BoxDecorationStyles.completedProgressValueTileDecoration : BoxDecorationStyles.uncompletedProgressValueTileDecoration),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,21 +57,20 @@ class ProgressValueTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                 Text(progressValue.name, style: TextStyles.progressValueTileTitleTextStyle,),
-                SizedBox(height: 8.0,),
+                const SizedBox(height: 8.0,),
                 Text(progressValue.desc,style: TextStyles.progressValueTileDescTextStyle,),
+                  const SizedBox(height: 8.0,),
+                  Text("$lessonsCount lessons"),
+                  const SizedBox(height: 8.0,),
               ],),
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("$lessonsCount lessons"),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child:  (progressValue.isCompleted ? CompletedIcon() : UncompletedIcon()),
+                  Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: (progressValue.isCompleted ? const CompletedIcon() : const UncompletedIcon()),
                 ),
               ],
             )

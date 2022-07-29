@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../core/models/user_main_goal.dart';
 import '../../../core/theme.dart';
 import '../../controller/providers.dart';
@@ -29,8 +28,8 @@ class _MainGoalsGridViewMobileState extends State<MainGoalsMobileGridView> {
               ListOfGoalsMobile(
                 goals: goals,
               ),
-          loading: () => EmptyListOfGoalsMobile(),
-          error: (e, stackTrace) => Text(""),
+          loading: () => const EmptyListOfGoalsMobile(),
+          error: (e, stackTrace) => CircularProgressIndicator(),
         );
       },
     );
@@ -51,39 +50,37 @@ class ListOfGoalsMobile extends StatelessWidget {
         itemCount: 4,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
-          return Container(
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    AutoSizeText(
-                      goals[index].name,
-                      style: TextStyles.mainGoalTitleTextStyle,
-                      minFontSize: 10,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    SizedBox(
-                      height: 32,
-                    ),
-                    ProgressBarWidget(
-                      avgValue: goals[index].getAverageProgressValue(),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(goals[index].currentValue.toString()),
-                        Text(' / '),
-                        Text(goals[index].totalValue.toString()),
-                      ],
-                    ),
-                    Text(
-                      goals[index].desc,
-                      style: TextStyles.mainGoalDescriptionTextStyle,
-                    ),
-                  ],
-                ),
+          return Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AutoSizeText(
+                    goals[index].name,
+                    style: TextStyles.mainGoalTitleTextStyle,
+                    minFontSize: 10,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  ProgressBarWidget(
+                    avgValue: goals[index].getAverageProgressValue(),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(goals[index].currentValue.toString()),
+                      Text(' / '),
+                      Text(goals[index].totalValue.toString()),
+                    ],
+                  ),
+                  Text(
+                    goals[index].desc,
+                    style: TextStyles.mainGoalDescriptionTextStyle,
+                  ),
+                ],
               ),
             ),
           );
@@ -108,10 +105,10 @@ class EmptyListOfGoalsMobile extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2),
         itemBuilder: (context, index) {
-          return Card(
+          return const Card(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: CircularProgressIndicator(),
               ),
             ),

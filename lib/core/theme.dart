@@ -225,6 +225,23 @@ abstract class BoxDecorationStyles {
     color: Colors.orange[400],
   );
 
+  static final BoxDecoration drawerDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(2),
+      gradient: const LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color.fromRGBO(251, 244, 246, 1),
+          Color.fromRGBO(251, 244, 246, 1),
+          Color.fromRGBO(251, 244, 246, 1),
+          Color.fromRGBO(251, 244, 246, 1),
+          Color.fromRGBO(251, 244, 246, 1),
+          Color.fromRGBO(251, 244, 246, 1),
+          Color.fromRGBO(194, 207, 252, 1.0),
+          Color.fromRGBO(194, 207, 252, 1.0),
+          Color.fromRGBO(184, 207, 255, 1.0),
+        ],
+      ));
 }
 
 abstract class ButtonStyles {

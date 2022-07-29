@@ -11,31 +11,14 @@ class DrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final authService = SupaBaseService();
     return Container(
-      decoration: BoxDecoration(
-       borderRadius: BorderRadius.circular(2),
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color.fromRGBO(251, 244, 246, 1),
-              Color.fromRGBO(251, 244, 246, 1),
-              Color.fromRGBO(251, 244, 246, 1),
-              Color.fromRGBO(251, 244, 246, 1),
-              Color.fromRGBO(251, 244, 246, 1),
-              Color.fromRGBO(251, 244, 246, 1),
-              Color.fromRGBO(194, 207, 252, 1.0),
-              Color.fromRGBO(194, 207, 252, 1.0),
-              Color.fromRGBO(184, 207, 255, 1.0),
-            ],
-          )
-      ),
+      decoration: BoxDecorationStyles.drawerDecoration,
       child: Drawer(
 
        backgroundColor: AppColors.drawerColor,
         elevation: 0,
         child: Column(
           children: [
-            DrawerHeader(
+            const DrawerHeader(
               padding: EdgeInsets.symmetric(vertical: 46),
               child: Text(
                 Strings.drawerTitle,
@@ -44,21 +27,21 @@ class DrawerWidget extends StatelessWidget {
             ),
             Padding(
               padding: drawerPadding,
-              child: DrawerListTile(
+              child: const DrawerListTile(
                 title:Strings.homeSection,
                 listTileIcon: Icon(Icons.home, color: AppColors.drawerIconColor,),
               ),
             ),
             Padding(
               padding: drawerPadding,
-              child: DrawerListTile(
+              child: const DrawerListTile(
                 title: Strings.audioSection,
                 listTileIcon: Icon(Icons.record_voice_over, color: AppColors.drawerIconColor,),
               ),
             ),
             Padding(
               padding: drawerPadding,
-              child: DrawerListTile(
+              child: const DrawerListTile(
                 title: Strings.pricesSection,
                 listTileIcon: Icon(Icons.rocket_launch, color: AppColors.drawerIconColor,),
               ),
@@ -69,7 +52,7 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () async {
                   authService.logout(context);
                 },
-                child: DrawerListTile(
+                child: const DrawerListTile(
                   title: Strings.logoutSection,
                   listTileIcon: Icon(Icons.no_accounts_rounded, color: AppColors.drawerIconColor,),
                 ),

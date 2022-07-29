@@ -15,7 +15,7 @@ class ProgressBarWidget extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: GridView.builder(
-          padding: EdgeInsets.only(left: 8, right: 8),
+          padding: const EdgeInsets.only(left: 8, right: 8),
           itemCount: 5,
           gridDelegate:
           const SliverGridDelegateWithFixedCrossAxisCount(
