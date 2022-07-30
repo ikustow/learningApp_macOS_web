@@ -1,6 +1,6 @@
 # Learning English platform
 
-### Flutter pet project.
+### Flutter Responsive project.
 
 ## About the project
 
