@@ -22,6 +22,10 @@ Features
 
 ### Dashboard screen
 
+<img width="1228" alt="Screenshot 2022-07-30 at 13 31 05" src="https://user-images.githubusercontent.com/36426291/181906410-b51e293b-d91e-4056-8c5f-af5344d09e3f.png">
+
+
+
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/36426291/181906338-3451e45f-edd5-4cd1-a4c8-d28a7482f255.gif)
 
 
