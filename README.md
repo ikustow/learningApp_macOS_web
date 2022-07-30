@@ -1,4 +1,4 @@
-# web_app_dashboard
+# Learning English platform
 
 ### Flutter pet project.
 

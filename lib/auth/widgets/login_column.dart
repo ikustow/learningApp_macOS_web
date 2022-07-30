@@ -55,7 +55,7 @@ class LoginColumn extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-      //  RegisterButtonWidget(),
+       RegisterButtonWidget(),
       ],
     );
   }
