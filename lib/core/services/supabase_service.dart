@@ -162,10 +162,27 @@ class SupaBaseService {
     Random random = new Random();
     int randomNumber = random.nextInt(rangeValue);
 
-    final wordToLearn = allWords[randomNumber];
+    final wordToLearn = getRandomValue(allWords, id);
     final List<RandomWord> newStateList = [wordToLearn];
 
     print(wordToLearn);
     return newStateList;
   }
+
+ static getRandomValue(allWords, index){
+    Random random = new Random();
+    int randomNumber = random.nextInt(allWords.length-1);
+
+    print(index);
+    print(allWords.length-1);
+    if (index != randomNumber){
+      final wordToLearn = allWords[randomNumber];
+      return wordToLearn;
+    }
+    else
+    {
+      getRandomValue(allWords, index);
+    }
+  }
+
 }
