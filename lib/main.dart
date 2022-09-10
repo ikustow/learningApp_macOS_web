@@ -7,6 +7,7 @@ import 'package:web_app_dashboard/generated/l10n.dart';
 import 'package:web_app_dashboard/responsive/responsive_layout.dart';
 import 'auth/pages/login_page/login_page.dart';
 import 'auth/pages/login_page/login_page_mobile.dart';
+import 'auth/pages/register_page/register_page.dart';
 import 'auth/pages/start_page.dart';
 
 void main() async {
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
               tabletBody: LoginPageMobile(),
               mobileAppBody: LoginPageMobile(),
             ),
+        '/register': (_) => RegisterPage(),
       },
       home: StartPage(),
     );
