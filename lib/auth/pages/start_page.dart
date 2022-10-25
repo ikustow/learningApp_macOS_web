@@ -69,8 +69,8 @@ class _StartPageState extends State<StartPage> {
 Future<SharedData> authChecker() async {
 
   var prefs = await SharedPreferences.getInstance();
-  var savedUser = await prefs.getString('user');
-  var savedEmail = await prefs.getString('email');
+  var savedUser =  prefs.getString('user');
+  var savedEmail = prefs.getString('email');
 
   if (savedEmail.toString() != 'null') {
 
