@@ -22,13 +22,13 @@ class _StartPageState extends State<StartPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: FutureBuilder<SharedData>(
-      future: AuthChecker(),
+      future: authChecker(),
       builder: (buildContext, snapshot) {
 
         if (snapshot.hasData) {
 
           if (snapshot.data?.isAuth == false) {
-            return ResponsiveLayout(
+            return const ResponsiveLayout(
               desktopBody: LoginPage(),
               smallBody: LoginPageMobile(),
               tabletBody: LoginPageMobile(),
@@ -54,7 +54,7 @@ class _StartPageState extends State<StartPage> {
             ),
           );
         } else {
-          return ResponsiveLayout(
+          return const ResponsiveLayout(
             desktopBody: LoginPage(),
             smallBody: LoginPageMobile(),
             tabletBody: LoginPageMobile(),
@@ -66,7 +66,7 @@ class _StartPageState extends State<StartPage> {
   }
 }
 
-Future<SharedData> AuthChecker() async {
+Future<SharedData> authChecker() async {
 
   var prefs = await SharedPreferences.getInstance();
   var savedUser = await prefs.getString('user');

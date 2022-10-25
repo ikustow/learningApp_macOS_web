@@ -1,7 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'login_data.dart';
 
 class SharedData {
   final String email;
@@ -10,6 +6,4 @@ class SharedData {
 
   SharedData(this.email, this.userId, this.isAuth);
 
-//     this.id = savedUser!.toString();
-//     this.isAuth = true;
 }

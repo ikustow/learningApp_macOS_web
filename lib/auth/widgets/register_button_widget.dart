@@ -17,7 +17,7 @@ class RegisterButtonWidget extends StatelessWidget {
       onPressed: () {
         Navigator.pushNamed(context, '/register');
       },
-      child: Text("Register"),
+      child: const Text("Register"),
     );
   }
 }

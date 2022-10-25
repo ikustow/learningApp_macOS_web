@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class UserMainGoal {
   final int id;
@@ -20,7 +19,7 @@ class UserMainGoal {
 
  getAverageProgressValue () {
 
-   final avg = ((this.currentValue/this.totalValue)*10)/2;
+   final avg = ((currentValue/totalValue)*10)/2;
    final avgRounded = avg.round();
 
    return avgRounded;

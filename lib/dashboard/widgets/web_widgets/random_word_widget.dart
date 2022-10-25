@@ -71,7 +71,7 @@ class DesktopBodyRandomWidget extends StatelessWidget {
                   const SizedBox(
                     height: 4,
                   ),
-                  Text(Strings.newWordTitle,
+                  const Text(Strings.newWordTitle,
                       style: TextStyles.newWordTitleTextStyle, textAlign: TextAlign.center),
                   const SizedBox(
                     height: 32,
@@ -168,7 +168,7 @@ class TabletBodyRandomWidget extends StatelessWidget {
                   const SizedBox(
                     height: 4,
                   ),
-                  Text(Strings.newWordTabletTitle,
+                  const Text(Strings.newWordTabletTitle,
                       style: TextStyles.newWordTabletTitleTextStyle, textAlign: TextAlign.center),
                   const SizedBox(
                     height: 16,

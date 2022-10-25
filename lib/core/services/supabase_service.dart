@@ -65,7 +65,7 @@ class SupaBaseService {
       );
 
       Navigator.of(context).pushReplacement(
-        new MaterialPageRoute(builder: (context) => dashboardRoute),
+        MaterialPageRoute(builder: (context) => dashboardRoute),
       );
     } else if (result.error?.message != null) {
       Navigator.pushReplacementNamed(context, '/login');
@@ -79,14 +79,14 @@ class SupaBaseService {
     await pref.clear();
 
 
-    final loginPageRoute = ResponsiveLayout(
+    const loginPageRoute =  ResponsiveLayout(
       smallBody: LoginPageMobile(),
       desktopBody: LoginPage(),
       tabletBody: LoginPageMobile(), mobileAppBody: LoginPageMobile(),
     );
 
     Navigator.of(context).pushReplacement(
-      new MaterialPageRoute(builder: (context) => loginPageRoute),
+      MaterialPageRoute(builder: (context) => loginPageRoute),
     );
   }
 
@@ -159,22 +159,20 @@ class SupaBaseService {
 
     final rangeValue = allWords.length;
 
-    Random random = new Random();
+    Random random = Random();
     int randomNumber = random.nextInt(rangeValue);
 
     final wordToLearn = getRandomValue(allWords, id);
     final List<RandomWord> newStateList = [wordToLearn];
 
-    print(wordToLearn);
     return newStateList;
   }
 
  static getRandomValue(allWords, index){
-    Random random = new Random();
+    Random random = Random();
     int randomNumber = random.nextInt(allWords.length-1);
 
-    print(index);
-    print(allWords.length-1);
+
     if (index != randomNumber){
       final wordToLearn = allWords[randomNumber];
       return wordToLearn;

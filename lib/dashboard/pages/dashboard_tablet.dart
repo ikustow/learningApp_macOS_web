@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:web_app_dashboard/core/theme.dart';
 import 'package:web_app_dashboard/dashboard/widgets/web_widgets/current_progress_list_widget.dart';

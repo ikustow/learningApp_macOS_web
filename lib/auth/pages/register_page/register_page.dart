@@ -16,33 +16,33 @@ class RegisterPage extends StatelessWidget {
         children: [
           TextField(
             controller: emailController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Email",
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           TextField(
             controller: passwordController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Password",
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           ElevatedButton(onPressed: ()  {
 
-          }, child: Text("Register")),
-          SizedBox(
+          }, child: const Text("Register")),
+          const SizedBox(
             height: 16,
           ),
           ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/login');
               },
-              child: Text("Already have account?"))
+              child: const Text("Already have account?"))
         ],
       ),
     );

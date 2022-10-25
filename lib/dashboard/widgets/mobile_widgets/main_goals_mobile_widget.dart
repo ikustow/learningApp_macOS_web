@@ -29,7 +29,7 @@ class _MainGoalsGridViewMobileState extends State<MainGoalsMobileGridView> {
                 goals: goals,
               ),
           loading: () => const EmptyListOfGoalsMobile(),
-          error: (e, stackTrace) => CircularProgressIndicator(),
+          error: (e, stackTrace) => const CircularProgressIndicator(),
         );
       },
     );
@@ -72,7 +72,7 @@ class ListOfGoalsMobile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(goals[index].currentValue.toString()),
-                      Text(' / '),
+                      const Text(' / '),
                       Text(goals[index].totalValue.toString()),
                     ],
                   ),

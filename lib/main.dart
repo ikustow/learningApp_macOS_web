@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +10,7 @@ import 'auth/pages/start_page.dart';
 
 void main() async {
 
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -35,15 +33,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: <String, WidgetBuilder>{
-        '/login': (_) => ResponsiveLayout(
+        '/login': (_) => const ResponsiveLayout(
               desktopBody: LoginPage(),
               smallBody: LoginPageMobile(),
               tabletBody: LoginPageMobile(),
               mobileAppBody: LoginPageMobile(),
             ),
-        '/register': (_) => RegisterPage(),
+        '/register': (_) => const RegisterPage(),
       },
-      home: StartPage(),
+      home: const StartPage(),
     );
   }
 }

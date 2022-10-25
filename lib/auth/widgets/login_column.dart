@@ -20,7 +20,7 @@ class LoginColumn extends StatelessWidget {
       children: [
         TextField(
           controller: emailController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: "Email",
           ),
         ),
@@ -29,7 +29,7 @@ class LoginColumn extends StatelessWidget {
         ),
         TextField(
           controller: passwordController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: "Password",
           ),
         ),
@@ -51,11 +51,11 @@ class LoginColumn extends StatelessWidget {
                 password: passwordController.text,
               );
             },
-            child: Text("Login")),
-        SizedBox(
+            child: const Text("Login")),
+        const SizedBox(
           height: 16,
         ),
-       RegisterButtonWidget(),
+       const RegisterButtonWidget(),
       ],
     );
   }

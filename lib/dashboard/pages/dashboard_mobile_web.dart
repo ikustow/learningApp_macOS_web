@@ -31,7 +31,7 @@ class DashboardSmallWidget extends StatelessWidget {
                     email: email,
                   ),
                 ),
-             AdvertisingBannerMobileWidget(),
+             const AdvertisingBannerMobileWidget(),
              CurrentProgressList(
                 email: email,
               ),

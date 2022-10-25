@@ -17,12 +17,13 @@ class DashboardMobileApp extends StatelessWidget {
   const DashboardMobileApp({Key? key, required this.username, required this.email})
       : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Strings.homeSection),
+        title: const Text(Strings.homeSection),
       ),
-     drawer: DrawerWidget(),
+     drawer: const DrawerWidget(),
      // bottomNavigationBar: BottomNavigationBarWidget(index: 0,),
       body: Container(
         decoration: BoxDecorationStyles.backgroundGradient,
@@ -37,7 +38,7 @@ class DashboardMobileApp extends StatelessWidget {
               MainGoalsMobileGridView(
                 email: email,
               ),
-             AdvertisingBannerMobileWidget(),
+             const AdvertisingBannerMobileWidget(),
               CurrentProgressListMobile(
                 email: email,
               ),

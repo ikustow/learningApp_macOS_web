@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:web_app_dashboard/core/theme.dart';
 import 'package:web_app_dashboard/dashboard/widgets/web_widgets/adv_banner_widget.dart';
@@ -27,15 +26,15 @@ class Dashboard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DrawerWidget(),
-            SizedBox(
+            const DrawerWidget(),
+            const SizedBox(
               width: 8,
             ),
             Expanded(
               flex: 2,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                   // first 4 boxes in grid
@@ -50,7 +49,7 @@ class Dashboard extends StatelessWidget {
             ),
             Expanded(
               child: Column(
-                children: [
+                children: const [
                   RandomWordWidget(type: TypeOfResponsive.Desktop,),
                   AdvertisingBannerWidget(
                     type: TypeOfResponsive.Desktop,

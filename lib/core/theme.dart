@@ -4,14 +4,14 @@ var drawerPadding = const EdgeInsets.only(left: 8.0, right: 8, top: 8);
 
 abstract class TextStyles {
 
-  static const TextStyle progressValueTileTitleTextStyle =  const TextStyle(
+  static const TextStyle progressValueTileTitleTextStyle =  TextStyle(
     fontSize: 16,
     letterSpacing: 1,
     color: Colors.black,
     fontWeight: FontWeight.normal,
   );
 
-  static const TextStyle progressValueTileDescTextStyle =  const TextStyle(
+  static const TextStyle progressValueTileDescTextStyle =  TextStyle(
     fontSize: 14,
     color: Colors.black54,
     fontWeight: FontWeight.normal,
@@ -72,7 +72,7 @@ abstract class TextStyles {
 
 
 
-  static final TextStyle newWordTitleTextStyle = TextStyle(
+  static const TextStyle newWordTitleTextStyle = TextStyle(
     letterSpacing: 1,
     fontSize: 34,
     color: Colors.black,
@@ -86,7 +86,7 @@ abstract class TextStyles {
     fontWeight: FontWeight.bold,
   );
 
-  static final TextStyle newWordPhoneticValueTextStyle =  TextStyle(
+  static const TextStyle newWordPhoneticValueTextStyle =  TextStyle(
     letterSpacing: 1,
     fontSize: 26,
     color: Colors.blueAccent,
@@ -94,7 +94,7 @@ abstract class TextStyles {
   );
 
 
-  static final TextStyle newWordTabletTitleTextStyle = TextStyle(
+  static const TextStyle newWordTabletTitleTextStyle = TextStyle(
     letterSpacing: 1,
     fontSize: 18,
     color: Colors.black,
@@ -108,7 +108,7 @@ abstract class TextStyles {
     fontWeight: FontWeight.bold,
   );
 
-  static final TextStyle newWordTabletPhoneticValueTextStyle =  TextStyle(
+  static const TextStyle newWordTabletPhoneticValueTextStyle =  TextStyle(
     letterSpacing: 1,
     fontSize: 16,
     color: Colors.blueAccent,
